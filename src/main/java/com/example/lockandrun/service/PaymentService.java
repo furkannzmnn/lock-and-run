@@ -22,8 +22,7 @@ public class PaymentService {
         this.cacheService = cacheService;
     }
 
-    // write cache
-    @CacheEvict(value = "payment", allEntries = true)
+
     public String pay(String paymentId) {
        return new LockExecutor<>(2, paymentId, cacheService) {
            @Override
