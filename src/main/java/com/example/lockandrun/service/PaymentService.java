@@ -22,7 +22,6 @@ public class PaymentService {
         this.cacheService = cacheService;
     }
 
-
     public String pay(String paymentId) {
        return new LockExecutor<>(2, paymentId, cacheService) {
            @Override

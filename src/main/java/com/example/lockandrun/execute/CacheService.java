@@ -18,10 +18,6 @@ public class CacheService {
         return jedisPool.getResource().get(key);
     }
 
-    public List<String> bulkGet(String... keys) {
-        return jedisPool.getResource().mget(keys);
-    }
-
     public Long increment(String key, int seconds) {
         try(Jedis jedis = jedisPool.getResource()) {
             final Long incr = jedis.incr(key);
